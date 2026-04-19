@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juice - The Juice Theory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+   body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0c3fc, #f9c5d1, #a1c4fd);
+  min-height: 100vh;
+  color: black;
+}
+
+/* 🔝 HEADER (same as Juices page) */
+#top {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.75)
+  );
+  backdrop-filter: blur(14px);
+
+  border-bottom: 3px solid #507d2a;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.header-left, .header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.header-center {
+  flex: 2;
+  text-align: center;
+}
+
+.header-center h2 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #507d2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+
+/* CART */
+.cart-link {
+  text-decoration: none;
+  color: #507d2a;
+  font-weight: bold;
+}
+
+#cart-count {
+  background: #8db600;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 50%;
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+/* ✨ MODERN CARD */
+.card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* 🌫️ SMOOTH OVERLAY */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.overlay h3 {
+  margin: 0 0 10px 0;
+  color: white;
+}
+
+/* BUTTON */
+.add-btn {
+  background: linear-gradient(135deg, #507d2a, #8db600);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+    /* Changed # to . to match your HTML class */
+.home-btn {
+  display: inline-block;
+  text-decoration: none; /* Removes the underline from the link */
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #4f7942, #8fbc8f);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #3d5f33, #6fa46f);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+.add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(141,182,0,0.6);
+}
+  </style>
+</head>
+
+<body>
+
+<div id="top">
+  <div class="header-left">
+    <img src="logo1.png" style="width: 120px;">
+  </div>
+
+  <div class="header-center">
+    <h2>Juices</h2>
+  </div>
+
+  <div class="header-right">
+    <a href="checkout.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    <a href="index.html" class="home-btn">Go To Home</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SAME CARDS (no change needed) -->
+
+  <div class="card">
+    <img src="apple.png">
+    <div class="overlay">
+      <h3>Apple Juice<br>₹90</h3>
+      <button class="add-btn" onclick="addToCart('Apple Juice', 90)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="muskmelon.png">
+    <div class="overlay">
+      <h3>Muskmelon Juice<br>₹70</h3>
+      <button class="add-btn" onclick="addToCart('Muskmelon Juice', 70)">Add to Cart</button>
+    </div>
+  </div>
+ <div class="card">
+    <img src="cranberry.png">
+    <div class="overlay">
+      <h3>Cranberry Juice<br>₹180</h3>
+      <button class="add-btn" onclick="addToCart('Cranberry Juice', 180)">Add to Cart</button>
+    </div>
+  </div>
+<div class="card">
+    <img src="watermelon.png">
+    <div class="overlay">
+      <h3>Watermelon Juice<br>₹70</h3>
+      <button class="add-btn" onclick="addToCart('Watermelon Juice', 70)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="mosambi.png">
+    <div class="overlay">
+      <h3>Mosambi Juice<br>₹60</h3>
+      <button class="add-btn" onclick="addToCart('Mosambi Juice', 60)">Add to Cart</button>
+    </div>
+  </div>
+<div class="card">
+    <img src="pomo.png">
+    <div class="overlay">
+      <h3>Pomogranate Juice<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Pomegranate Juice', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <img src="orange.png">
+    <div class="overlay">
+      <h3>Orange Juice<br>₹90</h3>
+      <button class="add-btn" onclick="addToCart('Orange Juice', 90)">Add to Cart</button>
+    </div>
+  </div>
+<div class="card">
+    <img src="sugarcane.png">
+    <div class="overlay">
+      <h3>Sugarcane Juice<br>₹70</h3>
+      <button class="add-btn" onclick="addToCart('Sugarcane Juice', 70)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="lemon.png">
+    <div class="overlay">
+      <h3>Lemon Juice<br>₹50</h3>
+      <button class="add-btn" onclick="addToCart('Lemon Juice', 50)">Add to Cart</button>
+    </div>
+  </div>
+
+  
+
+  <div class="card">
+    <img src="apple.png">
+    <div class="overlay">
+      <h3>Apple Juice<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Apple Juice', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+ 
+
+  <div class="card">
+    <img src="butterscotch.png">
+    <div class="overlay">
+      <h3>Butterscotch Milkshake<br>₹150</h3>
+      <button class="add-btn" onclick="addToCart('Butterscotch Milkshake', 150)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="strawberry.png">
+    <div class="overlay">
+      <h3>Strawberry Shake<br>₹150</h3>
+      <button class="add-btn" onclick="addToCart('Strawberry Shake', 150)">Add to Cart</button>
+    </div>
+  </div>
+
+  
+
+  
+
+</div>
+
+<script>
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        
+        const existingItem = cart.find(item => item.name === name);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: name, price: price, quantity: 1 });
+        }
+
+        localStorage.setItem('juiceCart', JSON.stringify(cart));
+        updateCartCount();
+        alert(name + " added to your cart!");
+    }
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cart-count').innerText = totalItems;
+    }
+
+    // Initialize count on load
+    updateCartCount();
+</script>
+
+</body>
+</html>
