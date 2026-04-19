@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Best Sellers - The Juice Theory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      /* Using the same gradient background as the Juices page */
+      background: linear-gradient(135deg, #e0c3fc, #f9c5d1, #a1c4fd);
+      min-height: 100vh;
+      color: black;
+    }
+
+    /* 🔝 HEADER */
+    #top {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 3px solid #507d2a;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .header-left, .header-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-right {
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    .header-center {
+      flex: 2;
+      text-align: center;
+    }
+
+    .header-center h2 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #507d2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* CART & HOME BUTTONS */
+    .cart-link {
+      text-decoration: none;
+      color: #507d2a;
+      font-weight: bold;
+    }
+
+    #cart-count {
+      background: #8db600;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 50%;
+    }
+
+    .home-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #4f7942, #8fbc8f);
+      border-radius: 25px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .home-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* GRID SYSTEM */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+
+    /* ✨ MODERN CARD STYLE (Matches Juices) */
+    .card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* 🌫️ OVERLAY (Matches Juices) */
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      box-sizing: border-box;
+    }
+
+    .overlay h3 {
+      margin: 0 0 10px 0;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .add-btn {
+      background: linear-gradient(135deg, #507d2a, #8db600);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .add-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 20px rgba(141,182,0,0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="top">
+  <div class="header-left">
+    <img src="logo1.png" alt="Logo" style="width: 100px;">
+  </div>
+
+  <div class="header-center">
+    <h2>Best Sellers</h2>
+  </div>
+
+  <div class="header-right">
+    <a href="checkout.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    <a href="index.html" class="home-btn">Go To Home</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <img src="brownie.jpg">
+    <div class="overlay">
+      <h3>Brownie with Ice Cream<br>₹200</h3>
+      <button class="add-btn" onclick="addToCart('Brownie with Ice Cream', 200)">Add to Cart</button>
+    </div>
+  </div>
+<div class="card">
+    <img src="ferr.png">
+    <div class="overlay">
+      <h3>Ferroro Rocher Shake<br>₹170</h3>
+      <button class="add-btn" onclick="addToCart('Ferroro Rocher Shake', 170)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="rosemilk.png">
+    <div class="overlay">
+      <h3>Rose Milk<br>₹70</h3>
+      <button class="add-btn" onclick="addToCart('Rose Milk', 70)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="kitkat.png">
+    <div class="overlay">
+      <h3>KitKat Shake<br>₹160</h3>
+      <button class="add-btn" onclick="addToCart('KitKat Shake', 160)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="nutella.png">
+    <div class="overlay">
+      <h3>Nutella Shake<br>₹210</h3>
+      <button class="add-btn" onclick="addToCart('Nutella Shake', 210)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="blue.png">
+    <div class="overlay">
+      <h3>Blue Lagoon<br>₹90</h3>
+      <button class="add-btn" onclick="addToCart('Blue Lagoon', 90)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="pomo.png">
+    <div class="overlay">
+      <h3>Pomegranate Juice<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Pomegranate Juice', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="apple.png">
+    <div class="overlay">
+      <h3>Apple Juice<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Apple Juice', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="cranberry.png">
+    <div class="overlay">
+      <h3>Cranberry Juice<br>₹180</h3>
+      <button class="add-btn" onclick="addToCart('Cranberry Juice', 180)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="butterscotch.png">
+    <div class="overlay">
+      <h3>Butterscotch Milkshake<br>₹150</h3>
+      <button class="add-btn" onclick="addToCart('Butterscotch Milkshake', 150)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="oreo.jpg">
+    <div class="overlay">
+      <h3>Oreo Shake<br>₹150</h3>
+      <button class="add-btn" onclick="addToCart('Oreo Shake', 150)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="butter.jpg">
+    <div class="overlay">
+      <h3>Almond Butter Smoothie<br>₹190</h3>
+      <button class="add-btn" onclick="addToCart('Almond Butter Smoothie', 190)">Add to Cart</button>
+    </div>
+  </div>
+
+  
+
+</div>
+
+<script>
+    // Shared Cart Logic
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const existingItem = cart.find(item => item.name === name);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: name, price: price, quantity: 1 });
+        }
+
+        localStorage.setItem('juiceCart', JSON.stringify(cart));
+        updateCartCount();
+        alert(name + " added to your cart!");
+    }
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartBadge = document.getElementById('cart-count');
+        if (cartBadge) {
+          cartBadge.innerText = totalItems;
+        }
+    }
+
+    // Run on page load
+    updateCartCount();
+</script>
+
+</body>
+</html>

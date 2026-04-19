@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Juice Theory</title>
+
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+                url("aboutus1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    /* Use clamp so it shrinks on mobile and grows on desktop */
+    font-size: clamp(2.5rem, 10vw, 4rem); 
+    margin-top: 40px;
+    font-family: 'Playfair Display', serif;
+    color: #507d2a;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  .content {
+    /* Set width to 90% for mobile, but max out at 800px for desktop */
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto 60px auto;
+    
+    /* Adjust padding for small screens */
+    padding: clamp(20px, 5vw, 60px);
+    
+    line-height: 1.8;
+    font-size: clamp(16px, 4vw, 20px);
+    
+    background: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box; /* Critical for responsiveness */
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  cite, strong {
+    color: #507d2a;
+    font-weight: 600;
+  }
+
+  strong {
+    border-bottom: 2px solid #8db600;
+  }
+
+  /* Responsive tweaks for very small phones */
+  @media (max-width: 480px) {
+    h1 { letter-spacing: 2px; }
+    .content { width: 95%; padding: 25px; }
+  }
+  </style>
+</head>
+
+<body>
+
+<h1>About Us</h1>
+
+<div class="content">
+  <p>
+    The story of <cite>The Juice Theory</cite> began in the early 1940s, in a small, sunlit town where fresh fruits were more than just food — they were a way of life. Our founder, <strong>Krishnamachary</strong>, believed that nature held the secret to both health and happiness.
+  </p>
+
+  <p>
+    With nothing more than a wooden cart, handpicked fruits, and a passion for purity, he started serving freshly squeezed juices to the local community.
+  </p>
+
+  <p>
+    Back then, it wasn’t just about quenching thirst — it was about creating moments. People gathered around his cart, not only for the refreshing taste but for the warmth, conversations, and trust he offered in every glass.
+  </p>
+
+  <p>
+    As years passed, his simple idea grew into a legacy. The recipes evolved, new flavors were discovered, and modern techniques were introduced — but the heart of <cite>The Juice Theory</cite> remained unchanged.
+  </p>
+
+  <p>
+    Today, we blend tradition with innovation. Every juice, smoothie, and shake we serve is inspired by Krishnamachary’s original belief:
+  </p>
+
+  <strong class="quote-text">
+    “Pure ingredients, honest flavors, and a refreshing experience in every sip.”
+  </strong>
+
+  <p>
+    From a humble cart in the 1940s to a contemporary juice destination, <cite>The Juice Theory</cite> continues to celebrate freshness, health, and the joy of simple pleasures.
+  </p>
+
+  <p style="text-align: center; font-weight: 600;">
+    Because for us, it’s never just juice —  
+    it’s a theory of living well.
+  </p>
+</div>
+
+</body>
+</html>
