@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Arrivals - The Juice Theory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0c3fc, #f9c5d1, #a1c4fd);
+      min-height: 100vh;
+      color: black;
+    }
+
+    /* 🔝 RESPONSIVE HEADER */
+    #top {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px; /* Reduced side padding for mobile */
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 3px solid #507d2a;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      flex-wrap: wrap; /* Allows items to wrap if screen is very narrow */
+    }
+
+    .header-left img { width: 100px; }
+
+    .header-center h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #507d2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cart-link {
+      text-decoration: none;
+      color: #507d2a;
+      font-weight: bold;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    #cart-count {
+      background: #8db600;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 50%;
+    }
+
+    .home-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #4f7942, #8fbc8f);
+      border-radius: 25px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    /* 📱 GRID SYSTEM */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop */
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: 0.4s ease;
+    }
+
+    .card:hover { transform: translateY(-10px); }
+
+    .card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      box-sizing: border-box;
+    }
+
+    .overlay h3 { margin: 0 0 10px; color: white; font-size: 1.2rem; }
+
+    .add-btn {
+      background: linear-gradient(135deg, #507d2a, #8db600);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* --- 📲 MEDIA QUERIES --- */
+
+    /* For Mobile Phones */
+    @media (max-width: 768px) {
+      #top {
+        padding: 10px;
+        justify-content: center; /* Center items on small screens */
+        gap: 10px;
+      }
+
+      .header-center { order: -1; width: 100%; text-align: center; } /* Title on top */
+      
+      .container {
+        grid-template-columns: 1fr; /* Switch to 1 column */
+        padding: 15px;
+      }
+
+      .card img {
+        height: 300px; /* Shorter images for mobile */
+      }
+      
+      .header-right {
+        width: 100%;
+        justify-content: space-around;
+      }
+    }
+
+    /* For Tiny Screens */
+    @media (max-width: 400px) {
+      .header-center h2 { font-size: 1.4rem; }
+      .home-btn { padding: 8px 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="top">
+  <div class="header-left">
+    <img src="logo1.png" alt="Logo">
+  </div>
+
+  <div class="header-center">
+    <h2>New Arrivals</h2>
+  </div>
+
+  <div class="header-right">
+    <a href="checkout.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    <a href="index.html" class="home-btn">Home</a>
+  </div>
+</div>
+
+<div class="container">
+<div class="card">
+    <img src="dry2.img.png" alt="Dry Fruit Shake">
+    <div class="overlay">
+      <h3>Dry Fruit Shake<br><span>₹150</span></h3>
+      <button class="add-btn" onclick="addToCart('Dry Fruit Shake', 150)">Add to Cart</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="nungu.png" alt="Nungu Milk">
+    <div class="overlay">
+      <h3>Nungu Milk<br><span>₹110</span></h3>
+      <button class="add-btn" onclick="addToCart('Nungu Milk', 110)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="ABC.png" alt="ABC Smoothie">
+    <div class="overlay">
+      <h3>ABC Smoothie<br><span>₹170</span></h3>
+      <button class="add-btn" onclick="addToCart('ABC Smoothie', 170)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="coconut.png" alt="Tender Coconut">
+    <div class="overlay">
+      <h3>Tender Coconut<br><span>₹70</span></h3>
+      <button class="add-btn" onclick="addToCart('Tender Coconut', 70)">Add to Cart</button>
+    </div>
+  </div>
+
+  
+
+  <div class="card">
+    <img src="milk.png" alt="Coconut Milk">
+    <div class="overlay">
+      <h3>Coconut Milk<br><span>₹100</span></h3>
+      <button class="add-btn" onclick="addToCart('Coconut Milk', 100)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="grape.png" alt="Pulpy Grape">
+    <div class="overlay">
+      <h3>Pulpy Grape<br><span>₹70</span></h3>
+      <button class="add-btn" onclick="addToCart('Pulpy Grape', 70)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: name, price: price, quantity: 1 });
+        }
+        localStorage.setItem('juiceCart', JSON.stringify(cart));
+        updateCartCount();
+        alert(name + " added to your cart!");
+    }
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const countElement = document.getElementById('cart-count');
+        if(countElement) countElement.innerText = totalItems;
+    }
+    updateCartCount();
+</script>
+
+</body>
+</html>

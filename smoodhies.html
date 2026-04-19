@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smoodhies - The Juice Theory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0c3fc, #f9c5d1, #a1c4fd);
+      min-height: 100vh;
+      color: black;
+    }
+
+    /* 🔝 RESPONSIVE HEADER */
+    #top {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px; /* Reduced padding for mobile safety */
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 3px solid #507d2a;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .header-left img { width: 100px; transition: 0.3s; }
+
+    .header-center h2 {
+      margin: 0;
+      font-size: 1.8rem; /* Scaled down slightly */
+      color: #507d2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* CART & BUTTONS */
+    .cart-link {
+      text-decoration: none;
+      color: #507d2a;
+      font-weight: bold;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    #cart-count {
+      background: #8db600;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 50%;
+    }
+
+    .home-btn {
+      text-decoration: none;
+      padding: 8px 15px;
+      background: linear-gradient(135deg, #4f7942, #8fbc8f);
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    /* 📱 GRID SYSTEM */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* CARD STYLING */
+    .card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.4s ease;
+    }
+
+    .card img {
+      width: 100%;
+      height: 350px; /* Adjusted for better balance */
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      box-sizing: border-box;
+    }
+
+    .overlay h3 {
+      margin: 0 0 10px 0;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .add-btn {
+      background: linear-gradient(135deg, #507d2a, #8db600);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* --- 📲 MEDIA QUERIES --- */
+
+    /* Tablets (2 columns) */
+    @media (max-width: 992px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .header-center h2 { font-size: 1.5rem; }
+    }
+
+    /* Mobile Phones (1 column) */
+    @media (max-width: 600px) {
+      #top {
+        flex-direction: column; /* Stack header items */
+        gap: 10px;
+        padding: 15px;
+      }
+      
+      .container {
+        grid-template-columns: 1fr; /* 1 card per row */
+        padding: 15px;
+      }
+
+      .card img {
+        height: 300px; /* Shorter images for mobile scrolling */
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: space-around;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="top">
+  <div class="header-left">
+    <img src="logo1.png" alt="Logo">
+  </div>
+
+  <div class="header-center">
+    <h2>Smoodhies</h2>
+  </div>
+
+  <div class="header-right">
+    <a href="checkout.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    <button class="home-btn" onclick="window.location.href='index.html'">Home</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/0b/7f/63/0b7f6397fa1db7f311018d05231dbc0c.jpg">
+    <div class="overlay">
+      <h3>Mango Smoodhie<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Mango Smoodhie', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/7/21/1/HE_Green-Smoothie-Bowl.jpg.rend.hgtvcom.791.594.85.suffix/143">
+    <div class="overlay">
+      <h3>Green Smoodhie Bowl<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Green Smoodhie Bowl', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/7/21/1/HE_smoothie-bowl.jpg.rend.hgtvcom.791.594.85.suffix/1437508213142.webp">
+    <div class="overlay">
+      <h3>Acai Berry Smoodhie<br>₹200</h3>
+      <button class="add-btn" onclick="addToCart('Acai Berry Smoodhie', 200)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/10/0/FNK_Mixed-Berries-And-Banana-Smoothie-And-Smoothie-Bowl_H_s4x3.jpg.rend.hgtvcom.791.594.85.suffix/1568395009465.webp">
+    <div class="overlay">
+      <h3>Wild Berries Smoodhie<br>₹160</h3>
+      <button class="add-btn" onclick="addToCart('Wild Berries Smoodhie', 160)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/7/21/1/HE_Berry-licious-Smoothie-Bowl.jpg.rend.hgtvcom.791.594.85.suffix/1437508212650.webp">
+    <div class="overlay">
+      <h3>Blueberry Smoodhie<br>₹180</h3>
+      <button class="add-btn" onclick="addToCart('Blueberry Smoodhie', 180)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="matchagreen.webp">
+    <div class="overlay">
+      <h3>Matcha Green Smoodhie<br>₹90</h3>
+      <button class="add-btn" onclick="addToCart('Matcha Green Smoodhie', 90)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="ABC.png">
+    <div class="overlay">
+      <h3>ABC Smoodhie<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('ABC Smoodhie', 120)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/df/89/a1/df89a1f9d5b05febf2765bab4dfcdd76.jpg">
+    <div class="overlay">
+      <h3>Mango Pineapple Smoodhie<br>₹80</h3>
+      <button class="add-btn" onclick="addToCart('Mango Pineapple Smoodhie', 80)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="chocohazel.webp">
+    <div class="overlay">
+      <h3>Chocolate Hazelnut Smoodhie<br>₹110</h3>
+      <button class="add-btn" onclick="addToCart('Chocolate Hazelnut Smoodhie', 110)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="strawberrysmoodhie.webp">
+    <div class="overlay">
+      <h3>Strawberry Smoodhie<br>₹150</h3>
+      <button class="add-btn" onclick="addToCart('Strawberry Smoodhie', 150)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="dragonfruit.webp">
+    <div class="overlay">
+      <h3>DragonFruit Smoodhie<br>₹90</h3>
+      <button class="add-btn" onclick="addToCart('DragonFruit Smoodhie', 90)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/05/13/8587515_smoothie-bowl_s4x3.jpg.rend.hgtvcom.791.594.85.suffix/1589396471359.webp">
+    <div class="overlay">
+      <h3>Pineapple Smoodhie<br>₹120</h3>
+      <button class="add-btn" onclick="addToCart('Pineapple Smoodhie', 120)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: name, price: price, quantity: 1 });
+        }
+        localStorage.setItem('juiceCart', JSON.stringify(cart));
+        updateCartCount();
+        alert(name + " added to your cart!");
+    }
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('juiceCart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const countElement = document.getElementById('cart-count');
+        if(countElement) countElement.innerText = totalItems;
+    }
+    
+    // Initial call
+    updateCartCount();
+</script>
+
+</body>
+</html>
